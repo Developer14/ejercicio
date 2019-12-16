@@ -1,0 +1,39 @@
+
+plugins {
+	id 'org.springframework.boot' version '2.2.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'java'
+
+group = 'org.vmdevel'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.hibernate:hibernate-validator:6.0.10.Final'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.h2database:h2:1.4.200'
+	implementation 'org.projectlombok:lombok:1.18.10'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+	// Spock
+	testCompile (
+			'org.springframework.boot:spring-boot-starter-test',
+			'junit:junit:4.12',
+			'org.mockito:mockito-core:2.21.0'
+	)
+
+}
+
+test {
+	testLogging {
+		showStandardStreams = true
+	}
+}
